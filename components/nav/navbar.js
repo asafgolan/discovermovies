@@ -8,11 +8,6 @@ import { magic } from  '../../lib/magic-client';
 
 const Navbar =()=>{
 
-
-
-
-
-
     const [showDropdown, setShowDropdown] = useState(false)
     const [username, setUsername] = useState('')
     const [didToken, setDidToken] = useState('')
@@ -27,7 +22,6 @@ const Navbar =()=>{
                 if (email) {
                     setUsername(email);
                     setDidToken(didToken);
-                    console.log({email}, {didToken})
                 }
             } catch (error) {
                 console.error("Error retrieving email", error);
@@ -73,11 +67,14 @@ const Navbar =()=>{
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
-                <a className={styles.logoLink} href="/">
-                    <div className={styles.logoWrapper}>
-                        <Image src='/static/netflix.svg' width='128px' height='34px' alt='Netflix logo'/>
-                    </div>
-                </a>
+                <Link href="/">
+                    <a className={styles.logoLink} >
+                        <div className={styles.logoWrapper}>
+                            <Image src='/static/netflix.svg' width='128px' height='34px' alt='Netflix logo'/>
+                        </div>
+                    </a>
+                </Link>
+
                 <ul className={styles.navItems}>
                     <li className={styles.navItem} onClick={handleOnClickHome}>Home</li>
                     <li className={styles.navItem2} onClick={handleOnClickMyList}> My List</li>

@@ -16,8 +16,6 @@ export async function getStaticProps(context) {
     //const res = await fetch('')
     //const posts = await res.json()
     const videoArray = await getYoutubeVideoById(context.params.videoId);
-    console.log({videoArray});
-
     return {
         props: {
             video: videoArray.length > 0 ? videoArray[0] : {},
@@ -81,7 +79,6 @@ const Video = ({video}) => {
     }
 
     const handleToggleDisLike = async () => {
-        console.log("DisLike")
         const val = !toggleDisLike
         setToggleDisLike(val)
         setToggleLike(toggleDisLike)
@@ -92,15 +89,12 @@ const Video = ({video}) => {
     }
 
     const handleToggleLike = async () => {
-        console.log("Like")
         const val = !toggleLike
         setToggleLike(val)
         setToggleDisLike(toggleLike)
 
         const favourited = val ? 1 : 0
         const response = await runRatingService(favourited)
-
-        console.log('data', await response.json())
     }
 
     const {title, publishTime, description, channelTitle, statistics: {viewsCount} = {viewsCount: 0}} = video

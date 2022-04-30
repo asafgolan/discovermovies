@@ -3,7 +3,6 @@ import Banner from "../components/banner/banner";
 import Navbar from "../components/nav/navbar";
 import SectionCards from "../components/card/section-cards";
 import {getVideos, getWatchItAgainVideos} from "../lib/video";
-import { verifyToken } from "../lib/utils";
 import UseRedirectUser from "../utils/redirectUser";
 import styles from '../styles/Home.module.css'
 
